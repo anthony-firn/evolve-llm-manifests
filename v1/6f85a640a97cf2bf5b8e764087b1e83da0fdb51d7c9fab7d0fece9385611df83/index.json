@@ -1,0 +1,15 @@
+{
+ "format": "evolve-llm-chunks/1",
+ "sha256": "6f85a640a97cf2bf5b8e764087b1e83da0fdb51d7c9fab7d0fece9385611df83",
+ "size": 807694464,
+ "chunk": 262144,
+ "page_chunks": 4096,
+ "pages": [
+  "77729cb8c6fdf960f8c3cd503e08b176132ac8ebc9cf7d9faa3f49b57f83c705"
+ ],
+ "source": {
+  "repo": "bartowski/Llama-3.2-1B-Instruct-GGUF",
+  "file": "Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+  "revision": "067b946cf014b7c697f3654f621d577a3e3afd1c"
+ }
+}

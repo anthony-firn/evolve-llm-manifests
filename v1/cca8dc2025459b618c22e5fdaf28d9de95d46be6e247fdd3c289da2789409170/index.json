@@ -1,0 +1,17 @@
+{
+ "format": "evolve-llm-chunks/1",
+ "sha256": "cca8dc2025459b618c22e5fdaf28d9de95d46be6e247fdd3c289da2789409170",
+ "size": 2934206976,
+ "chunk": 262144,
+ "page_chunks": 4096,
+ "pages": [
+  "76f97d0efffeca92cd5f392d9054f49e365c8565b089d66ad7c290434b4bea13",
+  "080533735c007f64cc7d163406ed52f4259725d76df0ca7fbbd8abbe6c90f7cc",
+  "445f2f0ad3636711459c7d01c11bfcc818dcb07e84e1f92e95ee7681e71149c5"
+ ],
+ "source": {
+  "repo": "unsloth/Kimi-K2-Instruct-0905-GGUF",
+  "file": "UD-TQ1_0/Kimi-K2-Instruct-0905-UD-TQ1_0-00006-of-00006.gguf",
+  "revision": "ca516d05c7621c0615db3fc7efa63c9617547363"
+ }
+}

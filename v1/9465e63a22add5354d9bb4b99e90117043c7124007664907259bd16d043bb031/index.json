@@ -1,0 +1,15 @@
+{
+ "format": "evolve-llm-chunks/1",
+ "sha256": "9465e63a22add5354d9bb4b99e90117043c7124007664907259bd16d043bb031",
+ "size": 639446688,
+ "chunk": 262144,
+ "page_chunks": 4096,
+ "pages": [
+  "77e24bcbdedbd0a87058f5bf9f3d8c28136d8c6c8c0fad0b9c10792b14c9c6c8"
+ ],
+ "source": {
+  "repo": "Qwen/Qwen3-0.6B-GGUF",
+  "file": "Qwen3-0.6B-Q8_0.gguf",
+  "revision": "23749fefcc72300e3a2ad315e1317431b06b590a"
+ }
+}

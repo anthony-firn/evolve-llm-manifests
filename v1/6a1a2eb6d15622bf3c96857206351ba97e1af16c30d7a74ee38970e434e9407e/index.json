@@ -1,0 +1,16 @@
+{
+ "format": "evolve-llm-chunks/1",
+ "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+ "size": 1117320736,
+ "chunk": 262144,
+ "page_chunks": 4096,
+ "pages": [
+  "ed8094de5da6f1ef1400e8aa32c44433732a5b9c8b1cb556263f2bf3fd0ff5a6",
+  "08cb07bae4f456fe41837daaeb1955180bb6020e2048eba191d7e7d7dd10c849"
+ ],
+ "source": {
+  "repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+  "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+  "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9"
+ }
+}

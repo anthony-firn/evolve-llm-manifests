@@ -1,0 +1,15 @@
+{
+ "format": "evolve-llm-chunks/1",
+ "sha256": "f530705d447660a4336c329981af164b471b60b974b1d808d57e8ec9fe23b239",
+ "size": 986048800,
+ "chunk": 262144,
+ "page_chunks": 4096,
+ "pages": [
+  "e8da69baec4ee53301230e45608e1a2eb5e6a752379b6bd93345f609753be87c"
+ ],
+ "source": {
+  "repo": "bartowski/Qwen2.5-Coder-1.5B-Instruct-GGUF",
+  "file": "Qwen2.5-Coder-1.5B-Instruct-Q4_K_M.gguf",
+  "revision": "1af47f78b1f9b0c242fabe43f7a365d5a67f3207"
+ }
+}

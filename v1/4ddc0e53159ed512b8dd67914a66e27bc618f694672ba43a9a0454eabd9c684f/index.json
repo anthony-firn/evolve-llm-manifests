@@ -1,0 +1,18 @@
+{
+ "format": "evolve-llm-chunks/1",
+ "sha256": "4ddc0e53159ed512b8dd67914a66e27bc618f694672ba43a9a0454eabd9c684f",
+ "size": 4213512192,
+ "chunk": 262144,
+ "page_chunks": 4096,
+ "pages": [
+  "ea0c4f203a39da8539654e55f9e42d3cd0499ac0d0b2d91c889713702a301696",
+  "3bfe50703f6d2cf765a1aafb6a2fb7791902535bf03c774c2aa0bbbe8140d3d8",
+  "bb94f67ac777ee4465bc3727229081985fd9e39df924f6082ed3f2db084423f0",
+  "da9b14618998f6efcde79935a6571c870153ae7e85da261bcdafb57602535fb2"
+ ],
+ "source": {
+  "repo": "allenai/OLMoE-1B-7B-0125-Instruct-GGUF",
+  "file": "OLMoE-1B-7B-0125-Instruct-Q4_K_M.gguf",
+  "revision": "2ac1d27317927518c9ef7bd99f91f3f1e4ee288d"
+ }
+}
