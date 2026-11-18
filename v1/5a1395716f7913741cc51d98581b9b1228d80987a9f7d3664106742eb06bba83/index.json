@@ -1,0 +1,15 @@
+{
+ "format": "evolve-llm-chunks/1",
+ "sha256": "5a1395716f7913741cc51d98581b9b1228d80987a9f7d3664106742eb06bba83",
+ "size": 144811360,
+ "chunk": 262144,
+ "page_chunks": 4096,
+ "pages": [
+  "424b7949d63687eff5212a134364b25b97d6f25995082367a892cb0d6bc68f1f"
+ ],
+ "source": {
+  "repo": "bartowski/SmolLM2-135M-Instruct-GGUF",
+  "file": "SmolLM2-135M-Instruct-Q8_0.gguf",
+  "revision": "09816acd5d99df7be770d85ea30822623dab342c"
+ }
+}
