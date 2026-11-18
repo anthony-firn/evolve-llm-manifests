@@ -1,0 +1,77 @@
+name: Build chunk manifests
+
+on:
+  workflow_dispatch:
+    inputs:
+      files:
+        description: 'One "owner/repo path/to/file.gguf" per line; any part of a split model stands for every part'
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manifests
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        env:
+          FILES: ${{ inputs.files }}
+        run: echo "matrix=$(python3 tools/plan.py)" >> "$GITHUB_OUTPUT"
+
+  hash:
+    needs: plan
+    if: needs.plan.outputs.matrix != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      # Streams the file from Hugging Face at the planned commit; nothing is stored but the hashes.
+      - env:
+          REPO: ${{ matrix.repo }}
+          FILE: ${{ matrix.path }}
+          SHA: ${{ matrix.sha256 }}
+          REV: ${{ matrix.revision }}
+        run: python3 tools/chunk_manifest.py "https://huggingface.co/$REPO/resolve/$REV/$FILE" --out out --sha256 "$SHA" --repo "$REPO" --file "$FILE" --revision "$REV"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m-${{ matrix.sha256 }}
+          path: out/v1/${{ matrix.sha256 }}
+          retention-days: 3
+
+  commit:
+    needs: [plan, hash]
+    if: always() && needs.plan.outputs.matrix != '[]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: m-*
+          path: artifacts
+      - run: |
+          shopt -s nullglob
+          for d in artifacts/m-*; do
+            sha="${d#artifacts/m-}"
+            [[ "$sha" =~ ^[0-9a-f]{64}$ ]] || continue
+            mkdir -p "v1/$sha" && cp "$d"/* "v1/$sha/"
+          done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v1
+          git diff --cached --quiet && exit 0
+          git commit -m "Add chunk manifests for $(git diff --cached --name-only | grep -c index.json) file(s)"
+          git pull --rebase
+          git push
